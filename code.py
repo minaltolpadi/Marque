@@ -1,9 +1,9 @@
 import tweepy
 import json
 import textblob
+import conf
 
-
-brand = "trustfuel"
+brand = "trust"
 
 class MyStreamListener(tweepy.StreamListener):
 
@@ -19,8 +19,8 @@ class MyStreamListener(tweepy.StreamListener):
 if __name__ == '__main__':
 
 	#authentication
-	auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-	auth.set_access_token(access_token, access_token_secret)
+	auth = tweepy.OAuthHandler(conf.consumer_key, conf.consumer_secret)
+	auth.set_access_token(conf.access_token, conf.access_token_secret)
 	#create an instance
 	myStreamListener = MyStreamListener()
 	myStream = tweepy.Stream(auth,myStreamListener)
